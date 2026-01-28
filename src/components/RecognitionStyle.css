@@ -1,0 +1,98 @@
+.recognition {
+  text-align: center;
+  position: relative;
+  background: transparent;
+}
+
+.recognition::after {
+  content: "";
+  position: absolute;
+  inset: -140px 0; 
+  background: radial-gradient(
+    circle at top,
+    rgba(99, 102, 241, 0.14),
+    transparent 72%
+  );
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.recognition h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 0.6rem;
+  color: #f8fafc;
+}
+
+.recognition p {
+  max-width: 700px;
+  margin: 0.5rem auto 0;
+  color: #e0e7ff;
+}
+
+/* Grid */
+.recognition-grid {
+  position: relative;
+  z-index: 1;
+  margin-top: 3.25rem;
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Cards – lighter */
+.recognition-card {
+  padding: 1.75rem 1.6rem;
+  border-radius: 16px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.10),
+    rgba(255, 255, 255, 0.04)
+  );
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.recognition-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.5);
+  border-color: rgba(56, 189, 248, 0.22);
+}
+
+/* Icon */
+.recognition-card svg {
+  font-size: 1.9rem;
+  color: #a5b4fc;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 8px 14px rgba(99, 102, 241, 0.35));
+}
+
+.recognition-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+  color: #f1f5ff;
+}
+
+.recognition-card p {
+  color: #e0e7ff;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .recognition {
+    padding: 6rem 1rem;
+  }
+
+  .recognition-grid {
+    gap: 1.25rem;
+  }
+
+  .recognition-card {
+    padding: 1.5rem 1.35rem;
+  }
+}

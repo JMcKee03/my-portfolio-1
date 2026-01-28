@@ -1,0 +1,147 @@
+/* Featured Project */
+
+.featured-project {
+  display: flex;
+  justify-content: center;
+  padding: 8rem 1rem;
+  position: relative;
+  background: transparent;
+}
+
+
+.featured-project::after {
+  content: "";
+  position: absolute;
+  inset: -120px 0; 
+  background: radial-gradient(
+    circle at top,
+    rgba(56, 189, 248, 0.10),
+    transparent 70%
+  );
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.featured-card {
+  max-width: 760px;
+  width: 100%;
+  padding: 3.25rem 2.75rem;
+  border-radius: 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.10),
+    rgba(255, 255, 255, 0.04)
+  );
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+}
+
+.featured-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top,
+    rgba(99, 102, 241, 0.12),
+    transparent 62%
+  );
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.featured-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+  border-color: rgba(56, 189, 248, 0.28);
+}
+
+/* Label pill */
+.featured-label {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.45rem 1.05rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  color: #a5f3fc;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+.featured-card h2,
+.featured-card h3 {
+  color: #f8fafc;
+}
+
+.featured-description {
+  margin: 1.35rem 0 1.75rem;
+  color: #e0e7ff;
+  line-height: 1.7;
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tech stack pills */
+.tech-stack {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0 0 2rem;
+}
+
+.tech-stack li {
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #f1f5ff;
+  backdrop-filter: blur(6px);
+
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.tech-stack li:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(99, 102, 241, 0.28);
+}
+
+/* Buttons wrapper (if you want spacing) */
+.featured-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2.25rem;
+  flex-wrap: wrap;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .featured-project {
+    padding: 6.5rem 1rem;
+  }
+
+  .featured-card {
+    padding: 2.5rem 1.75rem;
+    border-radius: 20px;
+  }
+}

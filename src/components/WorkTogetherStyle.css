@@ -1,0 +1,60 @@
+.work-together {
+  padding: 10rem;
+  background: linear-gradient(
+    to bottom,
+    #0f172a,      
+    #1a1a1a,      
+    #0f172a       
+  );
+  color: #e0e0e0;
+  min-height: 95vh;
+}
+
+
+.work-card {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #2c2c2c; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.work-header h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff; 
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.work-item {
+  padding: 1rem;
+  background-color: #3a3a3a; 
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.work-item:hover {
+  background-color: #4f4f4f; 
+  transform: translateY(-3px);
+}
+
+.graduation {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #cfcfcf;
+}
+
+.work-item svg {
+  display: block;
+  margin: 0 auto 0.5rem; 
+  color: #fff; 
+}

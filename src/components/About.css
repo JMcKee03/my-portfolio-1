@@ -1,0 +1,348 @@
+/* SECTION BACKGROUND: light center -> dark bottom */
+.about-section {
+  padding: 8rem 1rem;
+  color: #e5e7eb;
+
+  background:
+    radial-gradient(
+      900px 420px at 50% 18%,
+      rgba(56, 189, 248, 0.18),
+      rgba(15, 23, 42, 0) 60%
+    ),
+    linear-gradient(
+      180deg,
+      #111827 0%,
+      #0f172a 45%,
+      #020617 100%
+    );
+
+  position: relative;
+  overflow: hidden;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER STYLING */
+.about-header {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.about-header h2 {
+  font-size: clamp(2.6rem, 4vw, 3.4rem);
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  color: #f8fafc;
+  margin-bottom: 0.9rem;
+  position: relative;
+  display: inline-block;
+}
+
+.about-header h2::after {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 70%;
+  margin: 0.85rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(56, 189, 248, 0),
+    rgba(56, 189, 248, 0.9),
+    rgba(56, 189, 248, 0)
+  );
+  filter: drop-shadow(0 6px 14px rgba(56, 189, 248, 0.25));
+}
+
+.about-kicker {
+  display: block;
+  width: fit-content;
+  margin: 1.25rem auto 1rem;
+
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(203, 213, 225, 0.9);
+
+  padding: 0.4rem 2rem;
+  border-radius: 999px;
+
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.about-subtitle {
+  font-size: 1.08rem;
+  color: rgba(203, 213, 225, 0.9);
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* GRID: 2 per row desktop */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.25rem;
+}
+
+/* CARD */
+.about-card {
+  position: relative;
+  border-radius: 22px;
+  padding: 2.75rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(10px);
+
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.25);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+
+  opacity: 0;
+  transform: translateY(14px);
+  animation: aboutFadeUp 700ms ease forwards;
+}
+
+/* subtle shine sweep on hover */
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: linear-gradient(
+    120deg,
+    rgba(56, 189, 248, 0) 0%,
+    rgba(56, 189, 248, 0.08) 40%,
+    rgba(56, 189, 248, 0) 70%
+  );
+  transform: translateX(-35%);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.55s ease;
+  pointer-events: none;
+}
+
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 35px 80px rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.22);
+}
+
+.about-card:hover::before {
+  opacity: 1;
+  transform: translateX(10%);
+}
+
+/* CARD TOP ROW: icon + title */
+.about-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+
+  color: #38bdf8;
+  background: rgba(2, 6, 23, 0.4);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.08);
+}
+
+.about-card h3 {
+  font-size: 1.7rem;
+  font-weight: 780;
+  letter-spacing: -0.01em;
+  color: #f1f5f9;
+}
+
+.about-card p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(226, 232, 240, 0.92);
+  white-space: pre-line;
+  text-align: center;
+}
+
+/* COURSEWORK CARD – lighter shadow + gentle highlight */
+.about-coursework {
+  margin-top: 3.5rem;
+  box-shadow:
+    0 26px 75px rgba(56, 189, 248, 0.16),
+    0 12px 34px rgba(0, 0, 0, 0.22);
+}
+
+/* Section spacing inside coursework */
+.coursework-sections {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 1.6rem;
+}
+
+.coursework-label {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.95);
+}
+
+/* Pills grid */
+.coursework-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.9rem 1rem;
+}
+
+/* Pills */
+.course-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 0.7rem 1.05rem;
+  border-radius: 999px;
+
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+
+  color: rgba(241, 245, 249, 0.95);
+
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.18),
+    rgba(15, 23, 42, 0.75)
+  );
+
+  border: 1px solid rgba(56, 189, 248, 0.22);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 6px 18px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.course-pill:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow:
+    0 10px 26px rgba(56, 189, 248, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.coursework-section:last-of-type .coursework-grid {
+  justify-items: center;
+}
+/* Disable the moving shine sweep on the coursework card */
+.about-coursework::before {
+  content: none !important;
+}
+
+/* Give coursework a smooth glow on hover instead */
+.about-coursework:hover {
+  transform: translateY(-10px);
+  border-color: rgba(56, 189, 248, 0.28);
+  box-shadow:
+    0 30px 90px rgba(56, 189, 248, 0.18),
+    0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+/* LinkedIn CTA */
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  margin: 0 auto 2rem;
+  padding: 0.55rem 1.1rem;
+
+  font-size: 0.95rem;
+  font-weight: 550;
+  letter-spacing: 0.02em;
+
+  color: #e5f2ff;
+  text-decoration: none;
+
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.22),
+    rgba(15, 23, 42, 0.75)
+  );
+
+  border: 1px solid rgba(56, 189, 248, 0.35);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 10px 30px rgba(56, 189, 248, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.linkedin-link svg {
+  font-size: 1.15rem;
+}
+
+.linkedin-link:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.55);
+  box-shadow:
+    0 18px 45px rgba(56, 189, 248, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+
+/* ANIMATION */
+@keyframes aboutFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .about-card {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .about-card,
+  .about-card::before {
+    transition: none;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    padding: 2.25rem;
+  }
+}

@@ -1,0 +1,409 @@
+
+
+.cert-detail-page {
+  min-height: 100vh;
+  padding: 8rem 1rem 7rem;
+  color: #e5e7eb;
+
+  background:
+    radial-gradient(
+      900px 420px at 50% 18%,
+      rgba(56, 189, 248, 0.18),
+      rgba(15, 23, 42, 0) 60%
+    ),
+    linear-gradient(
+      180deg,
+      #111827 0%,
+      #0f172a 45%,
+      #020617 100%
+    );
+
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-detail-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Top bar (back link) */
+.cert-detail-topbar {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+.cert-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+
+  padding: 0.7rem 1rem;
+  border-radius: 14px;
+
+  background: rgba(2, 6, 23, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  color: rgba(241, 245, 249, 0.92);
+  font-weight: 850;
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.cert-back:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.32);
+  box-shadow: 0 16px 45px rgba(56, 189, 248, 0.14);
+}
+
+/* =========================================
+   HERO CARD
+========================================= */
+.cert-hero {
+  border-radius: 26px;
+  overflow: hidden;
+
+  border: 1px solid rgba(226, 232, 240, 0.14);
+  background: rgba(248, 250, 252, 0.08);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 30px 85px rgba(56, 189, 248, 0.14),
+    0 18px 55px rgba(0, 0, 0, 0.28);
+
+  position: relative;
+  isolation: isolate;
+}
+
+/* subtle glow layer */
+.cert-hero::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  pointer-events: none;
+  background: radial-gradient(
+    900px 260px at 50% 15%,
+    rgba(56, 189, 248, 0.12),
+    transparent 60%
+  );
+  z-index: 0;
+}
+
+.cert-hero-banner {
+  position: relative;
+  z-index: 1;
+  height: 190px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(56, 189, 248, 0.10);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.12);
+}
+
+/* big center icon */
+.cert-hero-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(2, 6, 23, 0.28);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  color: #38bdf8;
+
+  font-size: 2.35rem;
+  box-shadow: 0 18px 45px rgba(56, 189, 248, 0.18);
+}
+
+/* Completed / In Progress chip */
+.cert-hero-status {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+
+  font-weight: 900;
+  font-size: 0.95rem;
+
+  background: rgba(2, 6, 23, 0.28);
+  border: 1px solid rgba(226, 232, 240, 0.12);
+  color: rgba(241, 245, 249, 0.92);
+}
+
+.cert-hero-status.done {
+  border-color: rgba(56, 189, 248, 0.26);
+}
+
+.cert-hero-status.prog {
+  border-color: rgba(251, 191, 36, 0.26);
+}
+
+/* Hero body */
+.cert-hero-body {
+  position: relative;
+  z-index: 1;
+  padding: 2.2rem;
+}
+
+.cert-hero-body h1 {
+  margin: 0;
+  font-size: clamp(2.05rem, 3.2vw, 2.85rem);
+  font-weight: 950;
+  color: rgba(241, 245, 249, 0.96);
+  letter-spacing: -0.02em;
+}
+
+.cert-hero-issuer {
+  margin: 0.55rem 0 0;
+  color: rgba(56, 189, 248, 0.85);
+  font-weight: 900;
+  font-size: 1.05rem;
+}
+
+.cert-hero-meta {
+  margin-top: 1.35rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.meta-item {
+  display: inline-flex;
+  gap: 0.75rem;
+  align-items: center;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.meta-item svg {
+  color: rgba(56, 189, 248, 0.95);
+  font-size: 1.05rem;
+}
+
+.meta-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 850;
+  color: rgba(226, 232, 240, 0.72);
+}
+
+.meta-value {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 900;
+  color: rgba(241, 245, 249, 0.95);
+}
+
+/* =========================================
+   STANDARD SECTIONS (About, Images, Skills)
+========================================= */
+.cert-section {
+  margin-top: 1.6rem;
+  padding: 1.75rem 1.9rem;
+  border-radius: 22px;
+
+  border: 1px solid rgba(226, 232, 240, 0.14);
+  background: rgba(248, 250, 252, 0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.22);
+}
+
+.cert-section h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.35rem;
+  font-weight: 950;
+  color: rgba(241, 245, 249, 0.96);
+  letter-spacing: -0.01em;
+}
+
+.cert-section p {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.84);
+  line-height: 1.75;
+  font-weight: 520;
+}
+
+/* heading row with optional chip */
+.cert-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+
+  background: rgba(2, 6, 23, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  color: rgba(241, 245, 249, 0.92);
+  font-weight: 900;
+}
+
+/* =========================================
+   IMAGES
+========================================= */
+.cert-images {
+  display: grid;
+  gap: 1rem;
+}
+
+.cert-images img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: contain;
+  border-radius: 16px;
+
+  background: rgba(2, 6, 23, 0.2);
+  border: 1px solid rgba(226, 232, 240, 0.12);
+}
+
+/* =========================================
+   SKILLS PILLS
+========================================= */
+.cert-skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.skill-pill {
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.18),
+    rgba(2, 6, 23, 0.25)
+  );
+
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  color: rgba(241, 245, 249, 0.92);
+
+  font-weight: 850;
+  letter-spacing: 0.01em;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 16px 40px rgba(56, 189, 248, 0.14);
+}
+
+/* =========================================
+   EXPLORE MORE
+========================================= */
+.cert-explore {
+  margin-top: 1.6rem;
+  padding: 1.9rem;
+  border-radius: 22px;
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(241, 245, 249, 0.08);
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 30px 85px rgba(56, 189, 248, 0.12),
+    0 18px 55px rgba(0, 0, 0, 0.28);
+}
+
+.cert-explore h2 {
+  margin: 0 0 1.15rem;
+  font-size: 1.45rem;
+  font-weight: 950;
+  color: rgba(241, 245, 249, 0.96);
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+}
+
+.explore-card {
+  border-radius: 18px;
+  padding: 1.4rem;
+
+  border: 1px solid rgba(226, 232, 240, 0.14);
+  background: rgba(248, 250, 252, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.explore-card h3 {
+  margin: 0;
+  font-weight: 950;
+  color: rgba(241, 245, 249, 0.96);
+}
+
+.explore-card p {
+  margin: 0.55rem 0 1rem;
+  color: rgba(226, 232, 240, 0.82);
+  line-height: 1.7;
+}
+
+/* Explore buttons */
+.explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+
+  padding: 0.7rem 0.95rem;
+  border-radius: 14px;
+
+  background: rgba(2, 6, 23, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.20);
+  color: rgba(241, 245, 249, 0.95);
+  font-weight: 900;
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.explore-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 16px 45px rgba(56, 189, 248, 0.16);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 900px) {
+  .cert-hero-body {
+    padding: 1.75rem;
+  }
+
+  .cert-section {
+    padding: 1.5rem;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .cert-back,
+  .skill-pill,
+  .explore-btn {
+    transition: none;
+  }
+}
