@@ -34,8 +34,11 @@ export const CERTS: Cert[] = [
     status: "Completed",
     dateText: "Feb 2026",
     credentialUrl: "https://www.codecademy.com/profiles/jerald37", // public verificatin link
-    description:
-      "Completed Codecademy’s Learn JavaScript course, covering JavaScript fundamentals through hands-on exercises and projects.",
+   description: ` Completed Codecademy’s Learn JavaScript course, covering JavaScript fundamentals
+                  through hands-on exercises and projects.
+                  This was a 15-hour course that contained 12 projects and covered topics such as
+                  conditionals, functions, arrays, objects, and more.
+                  `,
     skills: ["JavaScript", "Programming Fundamentals", "Problem Solving"],
     images: ["/certs/LearnJavaScript _ Codecademy.jpg"], // image path
   },
