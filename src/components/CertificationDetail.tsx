@@ -1,16 +1,12 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import "./CertificationDetail.css";
 import { CERTS } from "./Certifications";
-import {
-  FaArrowLeft,
-  FaCalendarDays,
-  FaImages,
-  FaCode,
-} from "react-icons/fa6";
+import { FaArrowLeft, FaCalendarDays, FaImages, FaCode } from "react-icons/fa6";
 
 const CertificationDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const [activeImg, setActiveImg] = useState<string | null>(null);
 
   const cert = useMemo(() => CERTS.find((c) => c.slug === slug), [slug]);
 
@@ -32,7 +28,11 @@ const CertificationDetail: React.FC = () => {
               <FaCode />
             </div>
 
-            <div className={`cert-hero-status ${cert.status === "Completed" ? "done" : "prog"}`}>
+            <div
+              className={`cert-hero-status ${
+                cert.status === "Completed" ? "done" : "prog"
+              }`}
+            >
               {cert.status}
             </div>
           </div>
@@ -70,7 +70,17 @@ const CertificationDetail: React.FC = () => {
 
           <div className="cert-images">
             {cert.images.map((src, i) => (
-              <img key={`${src}-${i}`} src={src} alt={`${cert.title} ${i + 1}`} />
+              <img
+                key={`${src}-${i}`}
+                src={src}
+                alt={`${cert.title} ${i + 1}`}
+                className="cert-thumb"
+                onClick={() => setActiveImg(src)}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src =
+                    "/placeholder-cert.png";
+                }}
+              />
             ))}
           </div>
         </section>
@@ -110,6 +120,13 @@ const CertificationDetail: React.FC = () => {
           </div>
         </section>
       </div>
+
+      {/*  CLICK-TO-ZOOM MODAL */}
+      {activeImg && (
+        <div className="cert-modal" onClick={() => setActiveImg(null)}>
+          <img src={activeImg} alt="Zoomed certificate" />
+        </div>
+      )}
     </section>
   );
 };

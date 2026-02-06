@@ -10,6 +10,7 @@ import {
   FaMagnifyingGlass,
 } from "react-icons/fa6";
 
+
 type CertStatus = "Completed" | "In Progress";
 
 export type Cert = {
@@ -24,78 +25,19 @@ export type Cert = {
   images: string[];
 };
 
+
 export const CERTS: Cert[] = [
   {
-    slug: "responsive-web-design",
-    title: "Responsive Web Design",
-    issuer: "FreeCodeCamp",
-    status: "Completed",
-    dateText: "Dec 2025",
-    credentialUrl: "",
-    description:
-      "Built responsive layouts and practiced modern HTML/CSS techniques with hands-on projects.",
-    skills: ["HTML", "CSS", "Responsive Design"],
-    images: ["/placeholder-cert.png"],
-  },
-  {
-    slug: "js-algorithms-data-structures",
-    title: "JavaScript Algorithms",
-    issuer: "FreeCodeCamp",
-    status: "Completed",
-    dateText: "Nov 2025",
-    credentialUrl: "",
-    description:
-      "Strengthened JavaScript foundations through practical problem solving and algorithmic thinking.",
-    skills: ["JavaScript", "Algorithms", "Problem Solving"],
-    images: ["/placeholder-cert.png"],
-  },
-  {
-    slug: "git-github-fundamentals",
-    title: "Git & GitHub Fundamentals",
-    issuer: "Coursera",
-    status: "Completed",
-    dateText: "Oct 2025",
-    credentialUrl: "",
-    description:
-      "Learned version control workflows, branching strategies, and collaboration using pull requests.",
-    skills: ["Git", "GitHub", "Version Control"],
-    images: ["/placeholder-cert.png"],
-  },
-  {
-    slug: "aws-cloud-practitioner",
-    title: "AWS Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    status: "In Progress",
-    dateText: "In progress",
-    credentialUrl: "",
-    description:
-      "Studying cloud fundamentals, core AWS services, billing models, and security basics.",
-    skills: ["Cloud", "AWS", "Core Services"],
-    images: ["/placeholder-cert.png"],
-  },
-  {
-    slug: "sql-for-data-applications",
-    title: "SQL for Data & Applications",
-    issuer: "Udemy",
-    status: "In Progress",
-    dateText: "In progress",
-    credentialUrl: "",
-    description:
-      "Practicing relational database concepts, joins, and writing efficient queries for real datasets.",
-    skills: ["SQL", "Joins", "Relational Databases"],
-    images: ["/placeholder-cert.png"],
-  },
-  {
-    slug: "react-typescript-mastery",
-    title: "React + TypeScript Mastery",
+    slug: "learn-javascript-codecademy",
+    title: "Learn JavaScript Course",
     issuer: "Codecademy",
-    status: "In Progress",
-    dateText: "In progress",
-    credentialUrl: "",
+    status: "Completed",
+    dateText: "Feb 2026",
+    credentialUrl: "https://www.codecademy.com/profiles/jerald37", // public verificatin link
     description:
-      "Improving component patterns, typing props/state, and building scalable UI features.",
-    skills: ["React", "TypeScript", "Components"],
-    images: ["/placeholder-cert.png"],
+      "Completed Codecademy’s Learn JavaScript course, covering JavaScript fundamentals through hands-on exercises and projects.",
+    skills: ["JavaScript", "Programming Fundamentals", "Problem Solving"],
+    images: ["/certs/LearnJavaScript _ Codecademy.jpg"], // image path
   },
 ];
 
