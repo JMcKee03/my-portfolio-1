@@ -44,7 +44,7 @@ export const CERTS: Cert[] = [
       conditionals, functions, arrays, objects, and more.
       `,
     skills: ["JavaScript", "Programming Fundamentals", "Problem Solving"],
-    images: ["assets/certs/LearnJavaScript _ Codecademy.jpg"],
+    images: [`${import.meta.env.BASE_URL}certs/LearnJavaScript _ Codecademy.jpg`],
   },
   {
     slug: "Full-Stack Engineer",
