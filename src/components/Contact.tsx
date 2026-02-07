@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
       <div className="contact-wrap">
         <header className="contact-header">
           <div className="contact-avatar">
-            <img src="assets/Me.png" alt="Profile" />
+            <img src="/assets/Me.png" alt="Profile" />
           </div>
 
           <h1>Let&apos;s Connect</h1>
