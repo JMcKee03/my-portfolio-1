@@ -1,4 +1,5 @@
-import React from "react";
+// Projects.tsx
+import React, { useMemo } from "react";
 import "./Projects.css";
 import {
   FaGithub,
@@ -6,54 +7,120 @@ import {
   FaStar,
   FaCode,
   FaRocket,
+  FaFilePowerpoint,
 } from "react-icons/fa";
+
+type ProjectStatus = "Completed" | "In Progress";
 
 type Project = {
   title: string;
+  status: ProjectStatus;
   description: string;
   tech: string[];
-  codeUrl: string;
+  codeUrl?: string;
   demoUrl?: string;
+  slidesUrl?: string;
   featured?: boolean;
 };
 
 const projects: Project[] = [
   {
     title: "RainCheck",
+    status: "Completed",
     description:
-      "A responsive weather application that fetches real-time data from an API and presents it with dynamic visuals based on current conditions.",
+      "A responsive weather application that pulls real-time API data and presents it with a clean UI, dynamic visuals, and user-friendly formatting for quick decision-making.",
     tech: ["React", "TypeScript", "API Integration", "CSS"],
     codeUrl: "https://github.com/JMcKee03/RainCheck",
-    demoUrl: "https://your-live-demo-link.com", // TODO: replace
+    demoUrl: "https://your-live-demo-link.com",
     featured: true,
   },
   {
     title: "Portfolio Website",
+    status: "Completed",
     description:
-      "Personal portfolio built with React + TypeScript featuring modern UI, animations, and sections for projects, experience, and contact.",
-    tech: ["React", "TypeScript", "CSS"],
-    codeUrl: "https://github.com/your-username/portfolio", // TODO: replace
-    demoUrl: "https://your-portfolio-link.com", // TODO: replace
+      "A modern personal portfolio built with React + TypeScript featuring routed pages (Projects, Certifications, Skills), interactive UI components, and polished styling. Designed to clearly communicate projects, skills, and growth over time.",
+    tech: ["React", "TypeScript", "React Router", "CSS"],
+    codeUrl: "https://github.com/JMcKee03/my-portfolio-1",
+    demoUrl: "https://your-portfolio-link.com",
   },
   {
-    title: "Algorithm Visualizer",
+    title: "JavaScript Game Hub",
+    status: "Completed",
     description:
-      "A visual tool to demonstrate algorithm behavior with clean UI and step-by-step execution to help learning and debugging.",
-    tech: ["TypeScript", "React", "Algorithms"],
-    codeUrl: "https://github.com/your-username/algorithm-visualizer", // TODO: replace
+      "A browser-based mini game site featuring Tic-Tac-Toe, Rock Paper Scissors, and Connect 4. Built with clean game logic, DOM manipulation, and responsive layouts using reusable UI patterns.",
+    tech: ["JavaScript", "HTML", "CSS", "DOM Manipulation"],
+    codeUrl: "https://github.com/your-username/game-hub",
+    demoUrl: "https://your-game-hub-demo.com",
   },
   {
-    title: "Cloud Notes App",
+    title: "Android Matching Game",
+    status: "Completed",
     description:
-      "A simple notes app with authentication and cloud storage, focused on clean UX and secure data handling.",
-    tech: ["React", "Auth", "Cloud", "Security"],
-    codeUrl: "https://github.com/your-username/cloud-notes", // TODO: replace
+      "An Android memory matching game built in Android Studio with a grid-based board, score/attempt tracking, and clean state handling for card flips and match detection.",
+    tech: ["Android Studio", "Kotlin", "XML Layouts", "State Management"],
+    codeUrl: "https://github.com/your-username/android-matching-game",
+  },
+  {
+    title: "MySQL Relational Database Design",
+    status: "Completed",
+    description:
+      "Designed and implemented a relational database using MySQL, incorporating constraints and functions to enforce data integrity and define relationships. Built a normalized schema and wrote queries to validate correctness and support real use cases.",
+    tech: ["MySQL", "Relational Design", "Normalization", "SQL Queries"],
+    slidesUrl: "https://your-presentation-link.com",
+    codeUrl: "https://github.com/your-username/mysql-database-project",
   },
 ];
 
 const Projects: React.FC = () => {
-  const featured = projects.find((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
+  const completed = useMemo(() => projects.filter((p) => p.status === "Completed"), []);
+  const inProgress = useMemo(() => projects.filter((p) => p.status === "In Progress"), []);
+
+  const featured = useMemo(() => completed.find((p) => p.featured) ?? null, [completed]);
+  const completedRest = useMemo(() => completed.filter((p) => !p.featured), [completed]);
+
+  const renderProjectCard = (p: Project) => (
+    <article className="project-card" role="listitem" key={p.title}>
+      <div className="project-card-top">
+        <div className="project-icon" aria-hidden="true">
+          <FaCode />
+        </div>
+        <h3 className="project-title">{p.title}</h3>
+      </div>
+
+      <p className="project-desc">{p.description}</p>
+
+      <ul className="project-tech" aria-label="Technology stack">
+        {p.tech.map((t) => (
+          <li key={t} className="project-tech-pill">
+            {t}
+          </li>
+        ))}
+      </ul>
+
+      <div className="project-actions">
+        {p.demoUrl && (
+          <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="proj-btn ghost">
+            <FaExternalLinkAlt aria-hidden="true" />
+            Live Demo
+          </a>
+        )}
+
+        {p.slidesUrl && (
+          <a href={p.slidesUrl} target="_blank" rel="noopener noreferrer" className="proj-btn ghost">
+            <FaFilePowerpoint aria-hidden="true" />
+            Slides
+          </a>
+        )}
+
+        {p.codeUrl && (
+          <a href={p.codeUrl} target="_blank" rel="noopener noreferrer" className="proj-btn ghost">
+            <FaGithub aria-hidden="true" />
+            Code
+          </a>
+        )}
+      </div>
+    </article>
+  );
 
   return (
     <section id="projects" className="projects-section">
@@ -61,8 +128,8 @@ const Projects: React.FC = () => {
         <header className="projects-header">
           <h2>Projects</h2>
           <p className="projects-subtitle">
-            A selection of projects showcasing full-stack development, clean UI,
-            and practical problem-solving.
+            A selection of projects showcasing clean UI, practical problem-solving,
+            and steady progress across web, mobile, and database development.
           </p>
         </header>
 
@@ -101,65 +168,46 @@ const Projects: React.FC = () => {
                   </a>
                 )}
 
-                <a
-                  href={featured.codeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="proj-btn secondary"
-                >
-                  <FaGithub aria-hidden="true" />
-                  View Code
-                </a>
+                {featured.codeUrl && (
+                  <a
+                    href={featured.codeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="proj-btn secondary"
+                  >
+                    <FaGithub aria-hidden="true" />
+                    View Code
+                  </a>
+                )}
               </div>
             </div>
           </div>
         )}
 
-        <div className="projects-grid" role="list">
-          {rest.map((p) => (
-            <article className="project-card" role="listitem" key={p.title}>
-              <div className="project-card-top">
-                <div className="project-icon" aria-hidden="true">
-                  <FaCode />
-                </div>
-                <h3 className="project-title">{p.title}</h3>
-              </div>
+        <div className="projects-group">
+          <div className="projects-group-head">
+            <h3>Completed</h3>
+            <span className="projects-count">{completed.length}</span>
+          </div>
 
-              <p className="project-desc">{p.description}</p>
+          <div className="projects-grid" role="list">
+            {completedRest.map(renderProjectCard)}
+          </div>
+        </div>
 
-              <ul className="project-tech" aria-label="Technology stack">
-                {p.tech.map((t) => (
-                  <li key={t} className="project-tech-pill">
-                    {t}
-                  </li>
-                ))}
-              </ul>
+        <div className="projects-group">
+          <div className="projects-group-head">
+            <h3>In Progress</h3>
+            <span className="projects-count">{inProgress.length}</span>
+          </div>
 
-              <div className="project-actions">
-                {p.demoUrl && (
-                  <a
-                    href={p.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="proj-btn ghost"
-                  >
-                    <FaExternalLinkAlt aria-hidden="true" />
-                    Live Demo
-                  </a>
-                )}
-
-                <a
-                  href={p.codeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="proj-btn ghost"
-                >
-                  <FaGithub aria-hidden="true" />
-                  Code
-                </a>
-              </div>
-            </article>
-          ))}
+          {inProgress.length === 0 ? (
+            <p className="empty-text">No in-progress projects yet.</p>
+          ) : (
+            <div className="projects-grid" role="list">
+              {inProgress.map(renderProjectCard)}
+            </div>
+          )}
         </div>
       </div>
     </section>

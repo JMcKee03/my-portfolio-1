@@ -1,3 +1,4 @@
+// Certifications.tsx
 import React, { useMemo, useState } from "react";
 import "./Certifications.css";
 import { Link } from "react-router-dom";
@@ -10,7 +11,6 @@ import {
   FaMagnifyingGlass,
 } from "react-icons/fa6";
 
-
 type CertStatus = "Completed" | "In Progress";
 
 export type Cert = {
@@ -20,11 +20,11 @@ export type Cert = {
   status: CertStatus;
   dateText: string;
   credentialUrl?: string;
-  description: string;
+  summary: string;      //  short description for the list/cards page
+  description: string;  //  full description for the detail page
   skills: string[];
   images: string[];
 };
-
 
 export const CERTS: Cert[] = [
   {
@@ -33,14 +33,44 @@ export const CERTS: Cert[] = [
     issuer: "Codecademy",
     status: "Completed",
     dateText: "Feb 2026",
-    credentialUrl: "https://www.codecademy.com/profiles/jerald37", // public verificatin link
-   description: ` Completed Codecademy’s Learn JavaScript course, covering JavaScript fundamentals
-                  through hands-on exercises and projects.
-                  This was a 15-hour course that contained 12 projects and covered topics such as
-                  conditionals, functions, arrays, objects, and more.
-                  `,
+    credentialUrl: "https://www.codecademy.com/profiles/jerald37",
+    summary:
+      "Completed a Codecademy JavaScript course containing core JS fundamentals.",
+    description: `
+      Completed Codecademy’s Learn JavaScript course, covering JavaScript fundamentals
+      through hands-on exercises and projects.
+
+      This was a 15-hour course that contained 12 projects and covered topics such as
+      conditionals, functions, arrays, objects, and more.
+      `,
     skills: ["JavaScript", "Programming Fundamentals", "Problem Solving"],
-    images: ["/certs/LearnJavaScript _ Codecademy.jpg"], // image path
+    images: ["/certs/LearnJavaScript _ Codecademy.jpg"],
+  },
+  {
+    slug: "Full-Stack Engineer",
+    title: "Full-Stack Engineer",
+    issuer: "Codecademy",
+    status: "In Progress",
+    dateText: "March 2026",
+    credentialUrl: "https://www.codecademy.com/profiles/jerald37",
+    summary:
+      "Completed Codecademy's 150 hour Full-Stack Engineer Career Path.",
+    description: `
+      Currently progressing through Codecademy’s Full-Stack Engineer Career Path, gaining
+      hands-on experience across the full web development stack.
+
+      The path covers front-end development with HTML, CSS, JavaScript, React, and Redux,
+      as well as back-end development using Node.js, Express, and PostgreSQL. It emphasizes
+      building real-world PERN applications, implementing security best practices, and
+      connecting front-end and back-end systems.
+
+      Throughout the program, I am completing portfolio projects, practicing technical
+      interview problems, and strengthening version control workflows with Git and GitHub
+      to prepare for professional full-stack engineering roles.
+      `,
+
+    skills: ["Full-Stack Development", "Web Development", "React", "Node.js", "Express", "PostgreSQL"],
+    images: [""],
   },
 ];
 
@@ -73,7 +103,7 @@ const Certifications: React.FC = () => {
     [searched]
   );
 
-  // ✅ controls which sections appear
+  // controls which sections appear
   const showCompleted = filter === "All" || filter === "Completed";
   const showInProgress = filter === "All" || filter === "In Progress";
 
@@ -160,7 +190,7 @@ const Certifications: React.FC = () => {
             </div>
           </div>
 
-          {/* ✅ Completed section only when needed */}
+          {/* Completed section only when needed */}
           {showCompleted && (
             <section className="certs-section">
               <div className="certs-section-head">
@@ -196,7 +226,8 @@ const Certifications: React.FC = () => {
                         <span className="cert-date">{c.dateText}</span>
                       </div>
 
-                      <p className="cert-desc">{c.description}</p>
+                      {/*  short description on the list page */}
+                      <p className="cert-desc">{c.summary}</p>
 
                       <div className="cert-skills">
                         {c.skills.map((s) => (
@@ -218,7 +249,7 @@ const Certifications: React.FC = () => {
             </section>
           )}
 
-          {/* ✅ In progress section only when needed */}
+          {/* In progress section only when needed */}
           {showInProgress && (
             <section className="certs-section">
               <div className="certs-section-head">
@@ -254,7 +285,8 @@ const Certifications: React.FC = () => {
                         <span className="cert-date">{c.dateText}</span>
                       </div>
 
-                      <p className="cert-desc">{c.description}</p>
+                      {/*  short description on the list page */}
+                      <p className="cert-desc">{c.summary}</p>
 
                       <div className="cert-skills">
                         {c.skills.map((s) => (

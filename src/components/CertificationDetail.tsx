@@ -1,3 +1,4 @@
+// CertificationDetail.tsx
 import React, { useMemo, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import "./CertificationDetail.css";
@@ -56,6 +57,7 @@ const CertificationDetail: React.FC = () => {
         {/* ABOUT */}
         <section className="cert-section">
           <h2>About This Certification</h2>
+          {/*  full description on the detail page */}
           <p>{cert.description}</p>
         </section>
 
@@ -121,7 +123,7 @@ const CertificationDetail: React.FC = () => {
         </section>
       </div>
 
-      {/*  CLICK-TO-ZOOM MODAL */}
+      {/* CLICK-TO-ZOOM MODAL */}
       {activeImg && (
         <div className="cert-modal" onClick={() => setActiveImg(null)}>
           <img src={activeImg} alt="Zoomed certificate" />
