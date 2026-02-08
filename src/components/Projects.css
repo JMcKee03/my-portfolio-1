@@ -1,3 +1,70 @@
+/* Projects.css */
+
+/* =========================
+   PROJECTS PAGE ENTRY
+   ========================= */
+
+@keyframes projectsPageIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes projectsHeaderPop {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0) scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes projectsUnderlineSweep {
+  from {
+    transform: translateX(-50%) scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Page fade */
+.projects-section.page-enter {
+  animation: projectsPageIn 600ms ease both;
+}
+
+/* Header animation */
+.projects-section.page-enter .projects-header h2 {
+  animation: projectsHeaderPop 650ms cubic-bezier(.2,.9,.2,1) 120ms both;
+}
+
+/* Subtitle */
+.projects-section.page-enter .projects-subtitle {
+  animation: fadeInUp 550ms ease 220ms both;
+}
+
+/* Underline draw */
+.projects-section.page-enter .projects-header h2::after {
+  transform-origin: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  opacity: 0;
+  animation: projectsUnderlineSweep 600ms ease 320ms both;
+}
+
 .projects-section {
   padding: 8rem 1rem;
   color: #e5e7eb;
@@ -39,7 +106,6 @@
   display: block;
   height: 4px;
   width: 70%;
-  margin: 0.85rem auto 0;
   border-radius: 999px;
   background: linear-gradient(
     90deg,
@@ -123,8 +189,6 @@
   box-shadow: 0 10px 26px rgba(56, 189, 248, 0.10);
 }
 
-
-/* ---------- Featured ---------- */
 .projects-featured {
   position: relative;
   border-radius: 26px;
@@ -224,7 +288,6 @@
   gap: 1rem;
 }
 
-/* ---------- Grid Cards ---------- */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -347,7 +410,6 @@
   z-index: 1;
 }
 
-/* ---------- Buttons ---------- */
 .proj-btn {
   display: inline-flex;
   align-items: center;
@@ -398,7 +460,6 @@
   box-shadow: 0 14px 35px rgba(56, 189, 248, 0.12);
 }
 
-/* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .projects-grid {
     grid-template-columns: 1fr;

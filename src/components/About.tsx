@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./About.css";
 import {
   FaUser,
@@ -11,10 +11,16 @@ import {
 import "./NavBarStyle.css";
 
 const About: React.FC = () => {
+  const [headerIn, setHeaderIn] = useState(false);
+
+  useEffect(() => {
+    setHeaderIn(true);
+  }, []);
   return (
     <section id="about" className="about-section">
       <div className="about-container">
         <div className="about-header">
+          <div className={`about-header about-header-anim ${headerIn ? "is-in" : ""}`}>
           <h2>About Me</h2>
 
           <p className="about-kicker">Get to know me</p>
@@ -32,7 +38,7 @@ const About: React.FC = () => {
 <p className="about-subtitle">
   Learn more about my background, experience, and involvement.
 </p>
-
+</div>
         </div>
 
         {/* MAIN GRID */}

@@ -306,6 +306,13 @@
   box-shadow: 0 16px 45px rgba(56, 189, 248, 0.16);
 }
 
+@keyframes aboutFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /*=======================
       MEDIA/MOBILE
   =======================

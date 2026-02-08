@@ -11,7 +11,7 @@
       rgba(15, 23, 42, 0) 60%
     ),
     linear-gradient(
-      180deg,
+      180deg, 
       #111827 0%,
       #0f172a 45%,
       #020617 100%
@@ -20,6 +20,35 @@
   position: relative;
   overflow: hidden;
 }
+
+@keyframes aboutFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes barrelRoll {
+  0% {
+    transform: rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  60% {
+    transform: rotate(360deg) scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* animation class */
+.roll-in {
+  animation: barrelRoll 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: center;
+}
+
 
 .contact-panel {
   position: relative;

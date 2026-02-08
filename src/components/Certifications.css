@@ -1,3 +1,55 @@
+
+/*================
+      ANIMATIONS
+==================
+*/
+
+@keyframes certHeaderShake {
+  0%   { transform: translateX(0); }
+  10%  { transform: translateX(-8px); }
+  20%  { transform: translateX(8px); }
+  30%  { transform: translateX(-6px); }
+  40%  { transform: translateX(6px); }
+  55%  { transform: translateX(-3px); }
+  70%  { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
+
+
+@keyframes statPopIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes aboutFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-card {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  animation: statPopIn 520ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+
+.stat-card:nth-child(1) { animation-delay: 150ms; }
+.stat-card:nth-child(2) { animation-delay: 260ms; }
+.stat-card:nth-child(3) { animation-delay: 370ms; }
+
+
 /* Page background */
 .certs-page {
   min-height: 100vh;
@@ -16,6 +68,8 @@
   overflow: hidden;
 }
 
+
+
 .certs-wrap {
   max-width: 1200px;
   margin: 0 auto;
@@ -26,6 +80,13 @@
   text-align: center;
   margin-bottom: 2.6rem;
 }
+
+.certs-header h1 {
+  animation:
+    aboutFadeUp 700ms ease forwards,
+    certHeaderShake 600ms cubic-bezier(0.36, 0.07, 0.19, 0.97) 650ms;
+}
+
 
 .certs-header h1 {
   font-size: clamp(2.6rem, 4vw, 3.4rem);

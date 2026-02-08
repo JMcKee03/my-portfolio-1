@@ -1,5 +1,4 @@
 // Projects.tsx
-import React, { useMemo } from "react";
 import "./Projects.css";
 import {
   FaGithub,
@@ -9,6 +8,9 @@ import {
   FaRocket,
   FaFilePowerpoint,
 } from "react-icons/fa";
+import React, { useMemo, useEffect, useState } from "react";
+import "./Projects.css";
+
 
 type ProjectStatus = "Completed" | "In Progress";
 
@@ -22,6 +24,8 @@ type Project = {
   slidesUrl?: string;
   featured?: boolean;
 };
+
+
 
 const projects: Project[] = [
   {
@@ -72,11 +76,31 @@ const projects: Project[] = [
 ];
 
 const Projects: React.FC = () => {
-  const completed = useMemo(() => projects.filter((p) => p.status === "Completed"), []);
-  const inProgress = useMemo(() => projects.filter((p) => p.status === "In Progress"), []);
+const [animate, setAnimate] = useState(false);
 
-  const featured = useMemo(() => completed.find((p) => p.featured) ?? null, [completed]);
-  const completedRest = useMemo(() => completed.filter((p) => !p.featured), [completed]);
+useEffect(() => {
+  setAnimate(false); // reset animation state
+  requestAnimationFrame(() => setAnimate(true));
+}, []);
+
+
+  const completed = useMemo(
+    () => projects.filter((p) => p.status === "Completed"),
+    []
+  );
+  const inProgress = useMemo(
+    () => projects.filter((p) => p.status === "In Progress"),
+    []
+  );
+
+  const featured = useMemo(
+    () => completed.find((p) => p.featured) ?? null,
+    [completed]
+  );
+  const completedRest = useMemo(
+    () => completed.filter((p) => !p.featured),
+    [completed]
+  );
 
   const renderProjectCard = (p: Project) => (
     <article className="project-card" role="listitem" key={p.title}>
@@ -99,21 +123,36 @@ const Projects: React.FC = () => {
 
       <div className="project-actions">
         {p.demoUrl && (
-          <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="proj-btn ghost">
+          <a
+            href={p.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="proj-btn ghost"
+          >
             <FaExternalLinkAlt aria-hidden="true" />
             Live Demo
           </a>
         )}
 
         {p.slidesUrl && (
-          <a href={p.slidesUrl} target="_blank" rel="noopener noreferrer" className="proj-btn ghost">
+          <a
+            href={p.slidesUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="proj-btn ghost"
+          >
             <FaFilePowerpoint aria-hidden="true" />
             Slides
           </a>
         )}
 
         {p.codeUrl && (
-          <a href={p.codeUrl} target="_blank" rel="noopener noreferrer" className="proj-btn ghost">
+          <a
+            href={p.codeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="proj-btn ghost"
+          >
             <FaGithub aria-hidden="true" />
             Code
           </a>
@@ -123,7 +162,13 @@ const Projects: React.FC = () => {
   );
 
   return (
-    <section id="projects" className="projects-section">
+    <section
+  id="projects"
+  className={`projects-section ${animate ? "page-enter" : ""}`}
+>
+
+
+
       <div className="projects-container">
         <header className="projects-header">
           <h2>Projects</h2>

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import "./Experience.css";
 import { Link } from "react-router-dom";
 import {
@@ -104,8 +104,15 @@ export const EXPERIENCES: Experience[] = [
 
 
 const ExperiencePage: React.FC = () => {
+
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<"All" | ExperienceType>("All");
+  const [slideHeader, setSlideHeader] = useState(false);
+
+  useEffect(() => {
+    setSlideHeader(true);
+  }, []);
+
 
   const normalized = query.trim().toLowerCase();
 
@@ -124,7 +131,8 @@ const ExperiencePage: React.FC = () => {
     <section className="exp-page">
       <div className="exp-wrap">
         <header className="exp-header">
-          <h1>Work Experience</h1>
+          <h1 className={slideHeader ? "slide-in" : ""}>Work Experience</h1>
+
           <p>My professional journey and key accomplishments</p>
         </header>
 

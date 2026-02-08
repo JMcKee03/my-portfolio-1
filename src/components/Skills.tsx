@@ -317,6 +317,13 @@ const softSkills = [
 ];
 
 const Skills: React.FC = () => {
+const [playSweep, setPlaySweep] = useState(false);
+
+                  React.useEffect(() => {
+                  setPlaySweep(true);
+                }, []);
+
+
   const [active, setActive] = useState<Category>("Languages");
 
   const filtered = useMemo(
@@ -326,6 +333,8 @@ const Skills: React.FC = () => {
 
   return (
     <section className="skills-page">
+      <div className={`skills-sweep ${playSweep ? "play" : ""}`} />
+
       <div className="skills-wrap">
         <header className="skills-header">
           <h1>Technical Skills</h1>
@@ -349,7 +358,7 @@ const Skills: React.FC = () => {
             ))}
           </nav>
 
-          <div className="skills-grid" role="list">
+          <div className="skills-grid" role="list"  key={active}>
             {filtered.map((s, i) => (
               <article
                 className="skill-card"

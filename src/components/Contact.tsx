@@ -1,4 +1,3 @@
-import React from "react";
 import "./Contact.css";
 import {
   FaEnvelope,
@@ -9,6 +8,8 @@ import {
   FaFacebook,
   FaCommentDots,
 } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+
 
 import {
   FaArrowUpRightFromSquare,
@@ -47,6 +48,13 @@ const socials: Social[] = [
 ];
 
 const Contact: React.FC = () => {
+
+  const [roll, setRoll] = useState(false);
+
+  useEffect(() => {
+    setRoll(true);
+  }, []);
+
   return (
     <section className="contact-page">
       <div className="contact-wrap">
@@ -55,7 +63,10 @@ const Contact: React.FC = () => {
             <img src={`${import.meta.env.BASE_URL}Me.png`} alt="Profile" />
           </div>
 
-          <h1>Let&apos;s Connect</h1>
+          <h1 className={roll ? "roll-in" : ""}>
+                Let&apos;s Connect
+        </h1>
+
           <p>
             I&apos;m always open to discussing new projects, creative ideas, or
             opportunities to be part of your visions. Feel free to reach out!
