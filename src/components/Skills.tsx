@@ -6,8 +6,7 @@ import {
   FaServer,
   FaDatabase,
   FaTools,
-  FaBolt,
-  FaArrowRight,
+  FaBolt
 } from "react-icons/fa";
 
 type Level = "Beginner" | "Intermediate" | "Intermediate-Advanced" | "Advanced";
@@ -313,9 +312,7 @@ const Skills: React.FC = () => {
 
                 <p className="skill-blurb">{s.blurb}</p>
 
-                <button type="button" className="skill-cta">
-                  Learn More <FaArrowRight aria-hidden="true" />
-                </button>
+
               </article>
             ))}
           </div>
