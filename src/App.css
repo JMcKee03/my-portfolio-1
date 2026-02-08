@@ -1,11 +1,20 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Global layout container */
+:root {
+  --container: 1280px;
+  --gutter: clamp(16px, 4vw, 32px);
 }
 
+/* Root should not force center alignment or huge padding */
+#root {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0;            /* pages handle their own padding */
+  text-align: initial;   /* avoid centering every page globally */
+}
+
+/* Background wrapper */
 .app-background {
+  min-height: 100vh;
   background: linear-gradient(
     180deg,
     #0f172a 0%,
@@ -15,16 +24,18 @@
   );
 }
 
-
+/* A reusable divider (responsive) */
 .section-divider {
-  width: 80px;
+  width: clamp(64px, 18vw, 90px);
   height: 3px;
-  margin: 3rem auto;
+  margin: clamp(2rem, 6vw, 3rem) auto;
   background: linear-gradient(90deg, #38bdf8, #818cf8);
   border-radius: 999px;
   opacity: 0.85;
 }
 
+/* ---- The rest looks like Vite demo styles.
+   Keep them if you still use them; otherwise you can delete. ---- */
 
 .logo {
   height: 6em;

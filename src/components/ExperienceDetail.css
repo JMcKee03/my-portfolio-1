@@ -306,8 +306,50 @@
   box-shadow: 0 16px 45px rgba(56, 189, 248, 0.16);
 }
 
+/*=======================
+      MEDIA/MOBILE
+  =======================
+*/
+
 @media (max-width: 900px) {
   .expd-explore-grid { grid-template-columns: 1fr; }
   .expd-banner { grid-template-columns: 56px 1fr; }
   .expd-chip { justify-self: start; }
+}
+
+@media (max-width: 900px) {
+  .exp-controls {
+    gap: 0.9rem;
+  }
+
+  .exp-filters {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .filter-btn {
+    flex: 0 1 auto;
+    max-width: 100%;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .exp-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.25rem;
+  }
+
+  .exp-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex: 0 0 auto;
+  }
 }

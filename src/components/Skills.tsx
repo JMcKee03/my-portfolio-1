@@ -11,7 +11,12 @@ import {
 
 type Level = "Beginner" | "Intermediate" | "Intermediate-Advanced" | "Advanced";
 
-type Category = "Languages" | "Frontend" | "Backend" | "Database" | "DevOps & Tools";
+type Category =
+  | "Languages"
+  | "Frontend"
+  | "Backend"
+  | "Database"
+  | "DevOps & Tools";
 
 type Skill = {
   category: Category;
@@ -30,7 +35,9 @@ const categories: { key: Category; icon: React.ReactNode }[] = [
 ];
 
 const skills: Skill[] = [
+  // ======================
   // Languages
+  // ======================
   {
     category: "Languages",
     name: "JavaScript",
@@ -73,8 +80,52 @@ const skills: Skill[] = [
     icon: <FaCode />,
     blurb: "Low-level programming fundamentals and systems-oriented thinking.",
   },
+  {
+    category: "Languages",
+    name: "Bash / Shell",
+    level: "Intermediate",
+    icon: <FaCode />,
+    blurb: "Scripting workflows, automation, file operations, and CLI tooling.",
+  },
+  {
+    category: "Languages",
+    name: "Go (Golang)",
+    level: "Beginner",
+    icon: <FaCode />,
+    blurb: "Strongly typed language basics, concurrency concepts, and CLI tools.",
+  },
+  {
+    category: "Languages",
+    name: "C#",
+    level: "Beginner",
+    icon: <FaCode />,
+    blurb: "Object-oriented fundamentals, .NET syntax, and structured application logic.",
+  },
+  {
+    category: "Languages",
+    name: "Kotlin",
+    level: "Beginner",
+    icon: <FaCode />,
+    blurb: "Modern JVM language basics with concise syntax and null safety.",
+  },
+  {
+    category: "Languages",
+    name: "R",
+    level: "Beginner",
+    icon: <FaCode />,
+    blurb: "Statistical computing basics, data analysis, and visualization fundamentals.",
+  },
+  {
+    category: "Languages",
+    name: "Assembly (Intro)",
+    level: "Beginner",
+    icon: <FaCode />,
+    blurb: "Understanding low-level execution, registers, and memory operations.",
+  },
 
+  // ======================
   // Frontend
+  // ======================
   {
     category: "Frontend",
     name: "React",
@@ -118,7 +169,9 @@ const skills: Skill[] = [
     blurb: "Transitions, hover effects, and subtle motion for polished UI.",
   },
 
+  // ======================
   // Backend
+  // ======================
   {
     category: "Backend",
     name: "REST APIs",
@@ -162,7 +215,9 @@ const skills: Skill[] = [
     blurb: "Consistent error handling, status codes, and debugging workflows.",
   },
 
+  // ======================
   // Database
+  // ======================
   {
     category: "Database",
     name: "SQL",
@@ -199,7 +254,9 @@ const skills: Skill[] = [
     blurb: "Comfortable working in common relational DB environments.",
   },
 
+  // ======================
   // DevOps & Tools
+  // ======================
   {
     category: "DevOps & Tools",
     name: "Git & GitHub",
@@ -277,7 +334,19 @@ const Skills: React.FC = () => {
 
         <div className="skills-panel">
           <nav className="skills-tabs" aria-label="Skill categories">
-            
+            {categories.map((c) => (
+              <button
+                key={c.key}
+                type="button"
+                className={`skills-tab ${active === c.key ? "active" : ""}`}
+                onClick={() => setActive(c.key)}
+              >
+                <span className="tab-icon" aria-hidden="true">
+                  {c.icon}
+                </span>
+                <span className="tab-text">{c.key}</span>
+              </button>
+            ))}
           </nav>
 
           <div className="skills-grid" role="list">
@@ -299,8 +368,6 @@ const Skills: React.FC = () => {
                 </div>
 
                 <p className="skill-blurb">{s.blurb}</p>
-
-
               </article>
             ))}
           </div>

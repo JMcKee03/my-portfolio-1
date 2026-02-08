@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./NavBarStyle.css";
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);

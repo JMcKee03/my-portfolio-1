@@ -8,6 +8,7 @@ import {
   FaBookOpen,
   FaLinkedin 
 } from "react-icons/fa";
+import "./NavBarStyle.css";
 
 const About: React.FC = () => {
   return (

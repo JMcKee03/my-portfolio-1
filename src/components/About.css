@@ -322,27 +322,139 @@
   }
 }
 
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .about-card {
-    opacity: 1;
-    transform: none;
-    animation: none;
+/* Responsive improvements (mobile-first overrides) */
+
+/* 1050px: reduce density sooner */
+@media (max-width: 1050px) {
+  .about-section {
+    padding: 7rem 1rem;
   }
 
-  .about-card,
-  .about-card::before {
-    transition: none;
+  .about-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .about-grid {
+    gap: 1.75rem;
+  }
+
+  .about-card {
+    padding: 2.35rem;
   }
 }
 
-/* Responsive */
+/* 900px: stack to 1 column (you already had this, kept) */
 @media (max-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr;
   }
 
   .about-card {
-    padding: 2.25rem;
+    padding: 2.1rem;
+  }
+
+  .about-coursework {
+    margin-top: 2.75rem;
+  }
+}
+
+/* 700px: phone layout */
+@media (max-width: 700px) {
+  .about-section {
+    padding: 5.75rem 1rem 5.5rem;
+  }
+
+  .about-header {
+    margin-bottom: 2.75rem;
+  }
+
+  .about-kicker {
+    padding: 0.45rem 1.1rem;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
+    padding: 0 0.25rem;
+  }
+
+  .about-card {
+    padding: 1.65rem;
+    border-radius: 18px;
+  }
+
+  .about-card-top {
+    gap: 0.65rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .about-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+  }
+
+  .about-card h3 {
+    font-size: 1.35rem;
+    text-align: center;
+  }
+
+  .about-card p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .coursework-label {
+    font-size: 0.95rem;
+  }
+
+  /* Pills become narrower so they don’t force weird spacing */
+  .coursework-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .course-pill {
+    padding: 0.7rem 0.95rem;
+    font-size: 0.92rem;
+    border-radius: 18px; /* more “chip” than full pill on tiny screens */
+  }
+
+  .linkedin-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.7rem 1rem;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* 480px: very small phones */
+@media (max-width: 480px) {
+  .about-section {
+    padding: 5.25rem 0.9rem 5rem;
+  }
+
+  .about-header h2 {
+    font-size: clamp(2.05rem, 8vw, 2.6rem);
+  }
+
+  .about-header h2::after {
+    width: 78%;
+  }
+
+  .about-card {
+    padding: 1.4rem;
+  }
+
+  .about-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .about-card p {
+    font-size: 0.96rem;
   }
 }

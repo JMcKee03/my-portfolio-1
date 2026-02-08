@@ -1,5 +1,6 @@
 import React from "react";
 import { FaDownload, FaGithub } from "react-icons/fa";
+import "./NavBarStyle.css";
 
 
 

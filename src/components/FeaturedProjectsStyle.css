@@ -8,6 +8,18 @@
   background: transparent;
 }
 
+.featured-project {
+  isolation: isolate;
+}
+
+.featured-project::after {
+  z-index: 0;
+}
+
+.featured-card {
+  z-index: 1;
+}
+
 
 .featured-project::after {
   content: "";
@@ -143,5 +155,10 @@
   .featured-card {
     padding: 2.5rem 1.75rem;
     border-radius: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .recognition::after {
+    inset: -70px 0;
   }
 }

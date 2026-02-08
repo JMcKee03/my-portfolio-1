@@ -82,17 +82,84 @@
   line-height: 1.55;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
+
+
+/*    ===========================
+          MOBILE VERSION
+      ===========================
+*/
+
+
+@media (max-width: 900px) {
   .recognition {
-    padding: 6rem 1rem;
+    padding: 5.5rem 1rem 4.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .recognition::after {
+    inset: -90px 0;
   }
 
   .recognition-grid {
+    margin-top: 2.25rem;
     gap: 1.25rem;
   }
 
   .recognition-card {
-    padding: 1.5rem 1.35rem;
+    padding: 1.45rem 1.25rem;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .recognition {
+    padding: 5rem 1rem 4rem;
+    margin-top: 2rem;
+  }
+
+  .recognition::after {
+    inset: -70px 0;
+    opacity: 0.85;
+  }
+
+  .recognition h2 {
+    font-size: 1.8rem;
+    line-height: 1.15;
+  }
+
+  .recognition p {
+    max-width: 520px;
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .recognition-grid {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+
+  .recognition-card svg {
+    font-size: 1.75rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .recognition-card p {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .recognition {
+    padding: 4.75rem 0.9rem 3.75rem;
+  }
+
+  .recognition-card {
+    padding: 1.25rem 1.05rem;
+  }
+}
+@media (max-width: 600px) {
+  .recognition::after {
+    inset: -70px 0;
   }
 }
