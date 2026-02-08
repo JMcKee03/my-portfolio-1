@@ -277,19 +277,7 @@ const Skills: React.FC = () => {
 
         <div className="skills-panel">
           <nav className="skills-tabs" aria-label="Skill categories">
-            {categories.map((c) => (
-              <button
-                key={c.key}
-                type="button"
-                className={`skills-tab ${active === c.key ? "active" : ""}`}
-                onClick={() => setActive(c.key)}
-              >
-                <span className="tab-icon" aria-hidden="true">
-                  {c.icon}
-                </span>
-                <span className="tab-text">{c.key}</span>
-              </button>
-            ))}
+            
           </nav>
 
           <div className="skills-grid" role="list">
