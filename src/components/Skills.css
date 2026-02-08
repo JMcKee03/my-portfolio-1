@@ -1,3 +1,100 @@
+/* ===========================
+   SKILLS PAGE ANIMATIONS
+   =========================== */
+
+@keyframes skillsHeaderIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes skillsPanelIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.99); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes tabsIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pillIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Entrance */
+.skills-header {
+  animation: skillsHeaderIn 700ms ease both;
+}
+
+.skills-panel {
+  animation: skillsPanelIn 750ms ease 120ms both;
+}
+
+/* Tabs reveal */
+.skills-tabs {
+  animation: tabsIn 650ms ease 220ms both;
+}
+
+/* Active tab shimmer (subtle) */
+.skills-tab.active {
+  background-size: 200% 200%;
+  background-image: linear-gradient(
+    90deg,
+    rgba(56, 189, 248, 0.14),
+    rgba(168, 85, 247, 0.12),
+    rgba(56, 189, 248, 0.14)
+  );
+  animation: shimmer 2.8s linear infinite;
+}
+
+/* Logo micro-interaction */
+.skill-card:hover .skill-logo {
+  transform: translateY(-1px) scale(1.03);
+  transition: transform 0.25s ease;
+}
+
+/* Soft skills stagger  */
+.soft-pill {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: pillIn 520ms ease forwards;
+}
+
+.soft-pill:nth-child(1) { animation-delay: 80ms; }
+.soft-pill:nth-child(2) { animation-delay: 120ms; }
+.soft-pill:nth-child(3) { animation-delay: 160ms; }
+.soft-pill:nth-child(4) { animation-delay: 200ms; }
+.soft-pill:nth-child(5) { animation-delay: 240ms; }
+.soft-pill:nth-child(6) { animation-delay: 280ms; }
+.soft-pill:nth-child(7) { animation-delay: 320ms; }
+.soft-pill:nth-child(8) { animation-delay: 360ms; }
+.soft-pill:nth-child(9) { animation-delay: 400ms; }
+.soft-pill:nth-child(10){ animation-delay: 440ms; }
+.soft-pill:nth-child(11){ animation-delay: 480ms; }
+.soft-pill:nth-child(12){ animation-delay: 520ms; }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .skills-header,
+  .skills-panel,
+  .skills-tabs,
+  .soft-pill,
+  .skills-tab.active {
+    animation: none !important;
+  }
+
+  .skills-header,
+  .skills-panel,
+  .skills-tabs,
+  .soft-pill {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
+
 /* Match Contact page background */
 .skills-page {
   min-height: 100vh;
@@ -157,6 +254,33 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.6rem;
 }
+
+.skill-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(56, 189, 248, 0) 0%,
+    rgba(56, 189, 248, 0.08) 45%,
+    rgba(56, 189, 248, 0) 70%
+  );
+  transform: translateX(-35%);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.55s ease;
+  pointer-events: none;
+}
+
+.skill-card:hover::after {
+  opacity: 1;
+  transform: translateX(10%);
+}
+
 
 .skill-card {
   border-radius: 22px;
