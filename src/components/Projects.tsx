@@ -62,7 +62,7 @@ const projects: Project[] = [
     description:
       "An Android memory matching game built in Android Studio with a grid-based board, score/attempt tracking, and clean state handling for card flips and match detection.",
     tech: ["Android Studio", "Kotlin", "XML Layouts", "State Management"],
-    codeUrl: "https://github.com/your-username/android-matching-game",
+    codeUrl: "https://github.com/JMcKee03/matching-game",
   },
   {
     title: "MySQL Relational Database Design",
