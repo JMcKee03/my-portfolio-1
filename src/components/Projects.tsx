@@ -43,9 +43,7 @@ const projects: Project[] = [
     status: "Completed",
     description:
       "A modern personal portfolio built with React + TypeScript featuring routed pages (Projects, Certifications, Skills), interactive UI components, and polished styling. Designed to clearly communicate projects, skills, and growth over time.",
-    tech: ["React", "TypeScript", "React Router", "CSS"],
-    codeUrl: "https://github.com/JMcKee03/my-portfolio-1",
-    demoUrl: "https://your-portfolio-link.com",
+    tech: ["React", "TypeScript", "React Router", "CSS"]
   },
   {
     title: "JavaScript Game Hub",
@@ -70,8 +68,7 @@ const projects: Project[] = [
     description:
       "Designed and implemented a relational database using MySQL, incorporating constraints and functions to enforce data integrity and define relationships. Built a normalized schema and wrote queries to validate correctness and support real use cases.",
     tech: ["MySQL", "Relational Design", "Normalization", "SQL Queries"],
-    slidesUrl: "https://your-presentation-link.com",
-    codeUrl: "https://github.com/your-username/mysql-database-project",
+    slidesUrl: "/public/Projects/VideoGameDB470.pdf"
   },
 ];
 
