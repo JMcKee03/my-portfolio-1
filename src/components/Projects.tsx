@@ -33,7 +33,7 @@ const projects: Project[] = [
   {
     title: "Portfolio Website",
     status: "Completed",
-    description:
+    description: 
       "A modern personal portfolio built with React + TypeScript featuring routed pages (Projects, Certifications, Skills), interactive UI components, and polished styling. Designed to clearly communicate projects, skills, and growth over time.",
     tech: ["React", "TypeScript", "React Router", "CSS"],
     codeUrl: "https://github.com/JMcKee03/my-portfolio-1",
