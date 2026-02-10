@@ -2,15 +2,11 @@
 import "./Projects.css";
 import {
   FaGithub,
-  FaExternalLinkAlt,
   FaStar,
   FaCode,
-  FaRocket,
   FaFilePowerpoint,
 } from "react-icons/fa";
 import React, { useMemo, useEffect, useState } from "react";
-import "./Projects.css";
-
 
 type ProjectStatus = "Completed" | "In Progress";
 
@@ -20,12 +16,9 @@ type Project = {
   description: string;
   tech: string[];
   codeUrl?: string;
-  demoUrl?: string;
   slidesUrl?: string;
   featured?: boolean;
 };
-
-
 
 const projects: Project[] = [
   {
@@ -34,8 +27,7 @@ const projects: Project[] = [
     description:
       "A responsive weather application that pulls real-time API data and presents it with a clean UI, dynamic visuals, and user-friendly formatting for quick decision-making.",
     tech: ["React", "TypeScript", "API Integration", "CSS"],
-    codeUrl: "https://github.com/JMcKee03/RainCheck",
-    demoUrl: "https://your-live-demo-link.com",
+    codeUrl: "https://github.com/JMcKee03/WeatherApp",
     featured: true,
   },
   {
@@ -43,7 +35,8 @@ const projects: Project[] = [
     status: "Completed",
     description:
       "A modern personal portfolio built with React + TypeScript featuring routed pages (Projects, Certifications, Skills), interactive UI components, and polished styling. Designed to clearly communicate projects, skills, and growth over time.",
-    tech: ["React", "TypeScript", "React Router", "CSS"]
+    tech: ["React", "TypeScript", "React Router", "CSS"],
+    codeUrl: "https://github.com/JMcKee03/my-portfolio-1",
   },
   {
     title: "JavaScript Game Hub",
@@ -51,8 +44,7 @@ const projects: Project[] = [
     description:
       "A browser-based mini game site featuring Tic-Tac-Toe, Rock Paper Scissors, and Connect 4. Built with clean game logic, DOM manipulation, and responsive layouts using reusable UI patterns.",
     tech: ["JavaScript", "HTML", "CSS", "DOM Manipulation"],
-    codeUrl: "https://github.com/your-username/game-hub",
-    demoUrl: "https://your-game-hub-demo.com",
+    codeUrl: "https://github.com/JMcKee03/GameHub",
   },
   {
     title: "Android Matching Game",
@@ -68,23 +60,23 @@ const projects: Project[] = [
     description:
       "Designed and implemented a relational database using MySQL, incorporating constraints and functions to enforce data integrity and define relationships. Built a normalized schema and wrote queries to validate correctness and support real use cases.",
     tech: ["MySQL", "Relational Design", "Normalization", "SQL Queries"],
-    slidesUrl: "/public/Projects/VideoGameDB470.pdf"
+    slidesUrl: "/Projects/VideoGameDB470.pdf"
   },
 ];
 
 const Projects: React.FC = () => {
-const [animate, setAnimate] = useState(false);
+  const [animate, setAnimate] = useState(false);
 
-useEffect(() => {
-  setAnimate(false); // reset animation state
-  requestAnimationFrame(() => setAnimate(true));
-}, []);
-
+  useEffect(() => {
+    setAnimate(false);
+    requestAnimationFrame(() => setAnimate(true));
+  }, []);
 
   const completed = useMemo(
     () => projects.filter((p) => p.status === "Completed"),
     []
   );
+
   const inProgress = useMemo(
     () => projects.filter((p) => p.status === "In Progress"),
     []
@@ -94,6 +86,7 @@ useEffect(() => {
     () => completed.find((p) => p.featured) ?? null,
     [completed]
   );
+
   const completedRest = useMemo(
     () => completed.filter((p) => !p.featured),
     [completed]
@@ -119,18 +112,6 @@ useEffect(() => {
       </ul>
 
       <div className="project-actions">
-        {p.demoUrl && (
-          <a
-            href={p.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="proj-btn ghost"
-          >
-            <FaExternalLinkAlt aria-hidden="true" />
-            Live Demo
-          </a>
-        )}
-
         {p.slidesUrl && (
           <a
             href={p.slidesUrl}
@@ -151,7 +132,7 @@ useEffect(() => {
             className="proj-btn ghost"
           >
             <FaGithub aria-hidden="true" />
-            Code
+            Code/Demo
           </a>
         )}
       </div>
@@ -160,12 +141,9 @@ useEffect(() => {
 
   return (
     <section
-  id="projects"
-  className={`projects-section ${animate ? "page-enter" : ""}`}
->
-
-
-
+      id="projects"
+      className={`projects-section ${animate ? "page-enter" : ""}`}
+    >
       <div className="projects-container">
         <header className="projects-header">
           <h2>Projects</h2>
@@ -198,27 +176,15 @@ useEffect(() => {
               </ul>
 
               <div className="projects-actions">
-                {featured.demoUrl && (
-                  <a
-                    href={featured.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="proj-btn primary"
-                  >
-                    <FaRocket aria-hidden="true" />
-                    Live Demo
-                  </a>
-                )}
-
                 {featured.codeUrl && (
                   <a
                     href={featured.codeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="proj-btn secondary"
+                    className="proj-btn primary"
                   >
                     <FaGithub aria-hidden="true" />
-                    View Code
+                    Code/Demo
                   </a>
                 )}
               </div>

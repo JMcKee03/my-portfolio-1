@@ -22,18 +22,10 @@ const FeaturedProject = () => {
         </ul>
 
         <div className="featured-actions">
-  <a
-    href="https://raincheck-demo.vercel.app"  
-    target="_blank"
-    rel="noopener noreferrer"
-    className="btn primary"
-  >
-    <FaExternalLinkAlt />
-    Live Demo
-  </a>
+
 
   <a
-    href="https://github.com/JMcKee03/RainCheck"
+    href="https://github.com/JMcKee03/WeatherApp"
     target="_blank"
     rel="noopener noreferrer"
     className="btn secondary"
