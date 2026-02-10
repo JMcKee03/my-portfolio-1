@@ -1,4 +1,4 @@
-import { FaGithub, FaExternalLinkAlt  } from "react-icons/fa";
+import { FaGithub  } from "react-icons/fa";
 import './FeaturedProjectsStyle.css';
 
 const FeaturedProject = () => {
