@@ -62,6 +62,14 @@ const projects: Project[] = [
     tech: ["MySQL", "Relational Design", "Normalization", "SQL Queries"],
     slidesUrl: "/Projects/VideoGameDB470.pdf"
   },
+  {
+    title: "Mini-Project",
+    status: "In Progress",
+    description:
+      "A workspace to research and implement different JS features.",
+    tech: ["CSS", "JS", "HTML"],
+    codeUrl: "https://github.com/JMcKee03/MiniPro"
+  },
 ];
 
 const Projects: React.FC = () => {
