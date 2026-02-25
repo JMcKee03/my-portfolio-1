@@ -40,6 +40,7 @@ export const EXPERIENCES: Experience[] = [
     type: "Internship",
     bannerTone: "blue",
     icon: <FaBriefcase />,
+    websiteUrl: "https://www.downtownlorain.com",
 
     highlights: [
       "Developed and optimized website features using JavaScript, HTML, and CSS to improve performance and user experience.",
