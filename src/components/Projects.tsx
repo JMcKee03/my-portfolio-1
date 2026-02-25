@@ -60,7 +60,7 @@ const projects: Project[] = [
     description:
       "Designed and implemented a relational database using MySQL, incorporating constraints and functions to enforce data integrity and define relationships. Built a normalized schema and wrote queries to validate correctness and support real use cases.",
     tech: ["MySQL", "Relational Design", "Normalization", "SQL Queries"],
-    slidesUrl: "/Projects/VideoGameDB470.pdf"
+    slidesUrl: "/public/Projects/VideoGameDB470.pdf"
   },
   {
     title: "Mini-Project",
