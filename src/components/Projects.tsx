@@ -27,6 +27,7 @@ const projects: Project[] = [
     description: "",
     tech: ["React", "TypeScript", "API Integration", "CSS"],
     codeUrl: "https://github.com/JMcKee03/internship-tracker",
+    featured: true,
   },
   {
     title: "RainCheck",
@@ -70,7 +71,7 @@ const projects: Project[] = [
   },
   {
     title: "Mini-Project",
-    status: "In Progress",
+    status: "Completed",
     description:
       "A workspace to research and implement different JS features.",
     tech: ["CSS", "JS", "HTML"],
