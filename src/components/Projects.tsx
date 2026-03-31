@@ -22,13 +22,19 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "Internship Tracker",
+    status: "Completed",
+    description: "",
+    tech: ["React", "TypeScript", "API Integration", "CSS"],
+    codeUrl: "https://github.com/JMcKee03/internship-tracker",
+  },
+  {
     title: "RainCheck",
     status: "Completed",
     description:
       "A responsive weather application that pulls real-time API data and presents it with a clean UI, dynamic visuals, and user-friendly formatting for quick decision-making.",
     tech: ["React", "TypeScript", "API Integration", "CSS"],
     codeUrl: "https://github.com/JMcKee03/WeatherApp",
-    featured: true,
   },
   {
     title: "Portfolio Website",
