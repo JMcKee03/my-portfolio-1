@@ -7,6 +7,8 @@ import {
   FaFilePowerpoint,
 } from "react-icons/fa";
 import React, { useMemo, useEffect, useState } from "react";
+import photo1 from "../assets/photo1.png";
+import photo2 from "../assets/photo2.png";
 
 type ProjectStatus = "Completed" | "In Progress";
 
@@ -18,16 +20,21 @@ type Project = {
   codeUrl?: string;
   slidesUrl?: string;
   featured?: boolean;
+  images?: string[];
 };
 
 const projects: Project[] = [
   {
     title: "Internship Tracker",
     status: "Completed",
-    description: "",
-    tech: ["React", "TypeScript", "API Integration", "CSS"],
+    description: "A full-stack web application designed to help users organize and manage their internship search process. Built with React and TypeScript for a responsive, user-friendly interface, and powered by MongoDB for efficient data storage. The app allows users to track applications, monitor statuses, and manage important details in one centralized dashboard, streamlining the internship hunting experience.",
+    tech: ["React", "TypeScript", "API Integration", "CSS", "MongoDB"],
     codeUrl: "https://github.com/JMcKee03/internship-tracker",
     featured: true,
+    images: [
+    photo1,
+    photo2,
+  ],
   },
   {
     title: "RainCheck",
@@ -77,6 +84,14 @@ const projects: Project[] = [
     tech: ["CSS", "JS", "HTML"],
     codeUrl: "https://github.com/JMcKee03/MiniPro"
   },
+  {
+    title: "Resume-Analyzer",
+    status: "In Progress",
+    description:
+      "A project to analyze resumes and provide feedback on formatting, content, and keyword optimization. Aims to help users improve their resumes for better job application success.",
+    tech: ["CSS", "JS", "HTML", "AWS services", "API Integration"],
+    codeUrl: "https://github.com/JMcKee03/ai-resume-analyzer"
+  },
 ];
 
 const Projects: React.FC = () => {
@@ -117,6 +132,14 @@ const Projects: React.FC = () => {
       </div>
 
       <p className="project-desc">{p.description}</p>
+
+      {p.images && p.images.length > 0 && (
+        <div className="projects-images-grid">
+          {p.images.map((imgSrc, idx) => (
+            <img key={idx} src={imgSrc} alt={`${p.title} screenshot ${idx + 1}`} className="projects-image" />
+          ))}
+        </div>
+      )}
 
       <ul className="project-tech" aria-label="Technology stack">
         {p.tech.map((t) => (
@@ -181,6 +204,14 @@ const Projects: React.FC = () => {
               </div>
 
               <p className="projects-desc">{featured.description}</p>
+
+              {featured.images && featured.images.length > 0 && (
+                <div className="projects-images-grid">
+                  {featured.images.map((imgSrc, idx) => (
+                    <img key={idx} src={imgSrc} alt={`${featured.title} screenshot ${idx + 1}`} className="projects-image" />
+                  ))}
+                </div>
+              )}
 
               <ul className="projects-tech" aria-label="Technology stack">
                 {featured.tech.map((t) => (

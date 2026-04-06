@@ -7,11 +7,12 @@ const FeaturedProject = () => {
       <div className="featured-card fade-in">
         <span className="featured-label">Featured Project</span>
 
-        <h2>RainCheck</h2>
+        <h2>Internship-Tracker</h2>
         <p className="featured-description">
-          A responsive weather application that fetches real-time data from an API
-          and presents it in a clean, user-friendly interface with dynamic visuals
-          based on current conditions.
+          A full-stack web application designed to help users organize and manage their internship search process. 
+          Built with React and TypeScript for a responsive, user-friendly interface, and powered by MongoDB for efficient data storage. 
+          The app allows users to track applications, monitor statuses, and manage important details in one centralized dashboard, streamlining the 
+          internship hunting experience.
         </p>
 
         <ul className="tech-stack">
@@ -19,13 +20,14 @@ const FeaturedProject = () => {
           <li>TypeScript</li>
           <li>API Integration</li>
           <li>CSS</li>
+          <li>MongoDB</li>
         </ul>
 
         <div className="featured-actions">
 
 
   <a
-    href="https://github.com/JMcKee03/WeatherApp"
+    href="https://github.com/JMcKee03/internship-tracker"
     target="_blank"
     rel="noopener noreferrer"
     className="btn secondary"
